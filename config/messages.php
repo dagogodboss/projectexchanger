@@ -12,4 +12,5 @@ return[
 	'isvalidated'     	=> 'Your phone is verified already',
 	'wrong_token' 		=> 'invalid token supplied',
 	'phoneIsValidated' 	=> 'phone validation was successful',
+	'invalidPhone'  	=> 'Please verify your phone number.', 	
 ];

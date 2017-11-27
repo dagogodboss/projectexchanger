@@ -50,3 +50,27 @@
 			</div>
 		</div>
 @endsection
+
+@slot('scripts')
+	<script type="text/javascript">
+		$('form').submit(function(event) {
+			var form = $(this),
+			url = $(this).attr('action');
+			$.ajax({
+				url: url,
+				type: form.attr('method'),
+				data: form.serialize(),
+			})
+			.done(function(response) {
+				console.log(response);
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+			event.preventDefault();
+		});
+	</script>        
+@endpush

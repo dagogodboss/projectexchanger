@@ -20,6 +20,9 @@ class AccountDetails
                 return redirect('set-account/'.Auth::user()->hashId())->with('success', config('messages.fill_form'));
             }
         }
+        if(!LogUser()->phoneIsValidated()){
+            return redirect('/verify-phone')->with('error', message('invalidPhone'));
+        }
         return $next($request);
     }
 }
