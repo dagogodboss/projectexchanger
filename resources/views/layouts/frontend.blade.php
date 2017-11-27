@@ -106,7 +106,7 @@
 						<span class="hint-text ">Exclusive Design</span> 
 						<span class="hint-text">See</span> Standard licenses &amp; Extended licenses
 					</p>
-					<p class="fs-11 muted">Copyright &copy; 2017 {{ app_name }}. All Rights Reserved.</p>
+					<p class="fs-11 muted">Copyright &copy; 2017 {{ app_name() }}. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
