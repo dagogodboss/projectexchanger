@@ -51,25 +51,26 @@
 		</div>
 @endsection
 
-@slot('scripts')
+@push('after-scripts')
 	<script type="text/javascript">
 		$('form').submit(function(event) {
+			$('button').prop('disabled', 'disabled');
 			var form = $(this),
 			url = $(this).attr('action');
 			$.ajax({
 				url: url,
 				type: form.attr('method'),
 				data: form.serialize(),
-			})
-			.done(function(response) {
-				console.log(response);
-			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
-			});
+				success : function(response){
+					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'top',timeout:10,type:'success',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+					$('button').removeAttr('disabled');
+					window.location = 'home';
+				},
+				error : function(){
+					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'top',timeout:10,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+					$('button').removeAttr('disabled');
+				}
+			});			
 			event.preventDefault();
 		});
 	</script>        

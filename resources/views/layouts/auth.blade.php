@@ -35,6 +35,8 @@
 </head>
 <body class="fixed-header menu-pin">
 	@yield('content')
+
+ @stack('before-scripts')
 <script src="{{asset('assets/plugins/pace/pace.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/plugins/jquery/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/plugins/modernizr.custom.js')}}" type="text/javascript"></script>
@@ -81,5 +83,6 @@
     		$('body').pgNotification({style:'circle',title:'Notification',message:'{{ session('error') }}',position:'bottom-right',timeout:0,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
     	</script>
     @endif
+    @stack('after-scripts')
 </body>
 </html>
