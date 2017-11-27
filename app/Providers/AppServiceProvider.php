@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,6 +41,9 @@ class AppServiceProvider extends ServiceProvider
         \Blade::directive('endability', function($expression) {
             return "<?php endif;?>";
         });
+        if($this->app->environment() == 'production') {
+            URL::forceScheme('https');
+        }
     }
 
     /**

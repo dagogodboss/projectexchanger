@@ -15,7 +15,7 @@
 
 
 <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down m-l-20">
-<span class="semi-bold">David</span> <span class="text-master">Nest</span>
+<span class="semi-bold">{{ LogUser()->firstname }}</span> <span class="text-master">{{ LogUser()->middlename}}</span>
 </div>
 <div class="dropdown pull-right hidden-md-down">
 <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,10 +24,7 @@
 </span>
 </button>
 <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
-<a href="#" class="dropdown-item"><i class="pg-settings_small"></i> Settings</a>
-<a href="#" class="dropdown-item"><i class="pg-outdent"></i> Feedback</a>
-<a href="#" class="dropdown-item"><i class="pg-signals"></i> Help</a>
-<a href="#" class="clearfix bg-master-lighter dropdown-item">
+<a href="{{ url('/logout') }}" class="clearfix bg-master-lighter dropdown-item">
 <span class="pull-left">Logout</span>
 <span class="pull-right"><i class="pg-power"></i></span>
 </a>
