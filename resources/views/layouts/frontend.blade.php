@@ -103,10 +103,10 @@
 				</div>
 				<div class="col-sm-6 text-right font-arial sm-text-left">
 					<p class="fs-11 no-margin small-text">
-						<span class="hint-text ">Exclusive only at</span> Envato Marketplace,Themeforest 
+						<span class="hint-text ">Exclusive Design</span> 
 						<span class="hint-text">See</span> Standard licenses &amp; Extended licenses
 					</p>
-					<p class="fs-11 muted">Copyright &copy; 2014 REVOX. All Rights Reserved.</p>
+					<p class="fs-11 muted">Copyright &copy; 2017 {{ app_name }}. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
