@@ -39,10 +39,10 @@ class RegisterController extends Controller
     }
 
     private function insertUser($data){
-       $user =  User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user = new User();
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->save();
        return $user;
     }
 
