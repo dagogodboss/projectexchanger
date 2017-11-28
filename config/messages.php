@@ -13,4 +13,6 @@ return[
 	'wrong_token' 		=> 'invalid token supplied',
 	'phoneIsValidated' 	=> 'phone validation was successful',
 	'invalidPhone'  	=> 'Please verify your phone number.', 	
+	'register_done' 	=> 'Your Registration was successful. Please check your email inbox to validate your email.',
+	'pvmsg'  			=> 'Phone verification Code is :', 		
 ];

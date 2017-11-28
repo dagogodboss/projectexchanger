@@ -26,7 +26,7 @@ class SetAccount extends Controller
 			'firstname' 	=> 'required|min:3|alpha',
 			'surname' 		=> 'required|min:3|alpha',
 			'middlename' 	=> 'min:3|alpha',
-			'username' 		=> 'required|min:3',
+			'username' 		=> 'required|min:3|unique:users',
 			'birthday' 		=> 'required|date',
 			'phone_number' 	=> 'required|digits:11',
 			'bank_name'   	=> 'required|min:6',

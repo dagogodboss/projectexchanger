@@ -2,9 +2,15 @@
 
 namespace App\Auth\Token;
 
+use App\Helper\Request\CurlRequest;
 use App\Notifications\Auth\EmailVerificationToken;
 
 trait TokenTrait{
+	protected $curl;
+
+	public function __construct(){
+		$this->curl = new CurlRequest();
+	}
 
 	public function emailmagictoken(){
         return $this->hasOne('App\EmailMagicToken');
@@ -54,8 +60,14 @@ trait TokenTrait{
 	}
 
 	public function sendPhoneToken(){
-		
-		//$this->notify(new )
+		//dd($this);
+		$this->curl->getWithData(api('sms_site'), [
+			'username' => api('sms_username'),
+			'password' => api('sms_password'),
+			'sender'   => app_name(),
+			'mobiles'  => $this->phone_number,
+			'message'  => message('pvmsg').$this->userPhoneToken(),
+			]);
 		//dd($this->phonemagictoken->phone_token);
 	}
 

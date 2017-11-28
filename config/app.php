@@ -179,6 +179,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider::class,
 
+        //Curl Request
+
+        Ixudra\Curl\CurlServiceProvider::class,
+
     ],
 
     /*
@@ -207,6 +211,7 @@ return [
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
+        'Curl'          => Ixudra\Curl\Facades\Curl::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,

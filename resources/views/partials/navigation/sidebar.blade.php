@@ -41,7 +41,7 @@
 			<span class="icon-thumbnail"><i data-feather="life-buoy"></i></span>
 			</li>
 			<li class="">
-			<a href="{{ url('/logout') }}" target="_blank"><span class="title">Logout</span></a>
+			<a href="{{ url('/logout') }}"><span class="title">Logout</span></a>
 			<span class="icon-thumbnail">CG</span>
 			</li>
 		</ul>

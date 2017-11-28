@@ -14,7 +14,7 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     
     public function __construct()
@@ -35,7 +35,7 @@ class RegisterController extends Controller
     {
         $user = $this->insertUser($data);
                 $this->ValidateWithEmailToken($user);
-        return $user; 
+        return redirect($this->redirectPath())->with('reg_success', message('register_done'));
     }
 
     private function insertUser($data){
