@@ -24,6 +24,7 @@
 	<link href="{{asset('assets/plugins/switchery/css/switchery.min.css')}}" rel="stylesheet" type="text/css" media="screen" />
 	<link href="{{asset('pages/css/pages-icons.css')}}" rel="stylesheet" type="text/css">
 	<link class="main-stylesheet" href="{{asset('pages/css/themes/light.css')}}" rel="stylesheet" type="text/css" />
+	<link class="main-stylesheet" href="{{asset('pages/css/themes/mainstyle.css')}}" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
     window.onload = function()
     {

@@ -38,7 +38,13 @@
 	                                	@endif
 									</div>
 							</div>
-							<br><br>
+							<br>
+							@if(!session('clicked'))
+								<a href="{{ url('resend-code') }}" class="link-color send-code btn btn-link pull-right">
+									Resend Code
+								</a>
+							@endif
+							<br>
 							<button type="submit" class="btn btn-cons btn-info">Validate</button>
 								
 							</form>
@@ -53,6 +59,17 @@
 
 @push('after-scripts')
 	<script type="text/javascript">
+		
+		$('a.send-code').click(function(event) {
+			event.preventDefault();
+			var link = $(this);
+			$(this).fadeOut('slow', function() {
+				$.get(link.attr('href'), function(data) {
+					$('body').pgNotification({style:'circle',title:'Notification',message:data,position:'top-right',timeout:10,type:'success',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+				});
+			});	
+		});
+
 		$('form').submit(function(event) {
 			$('button').prop('disabled', 'disabled');
 			var form = $(this),
@@ -62,12 +79,12 @@
 				type: form.attr('method'),
 				data: form.serialize(),
 				success : function(response){
-					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'top',timeout:10,type:'success',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'top-right',timeout:10,type:'success',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
 					$('button').removeAttr('disabled');
 					window.location = 'home';
 				},
 				error : function(){
-					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'top',timeout:10,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+					$('body').pgNotification({style:'circle',title:'Notification',message:response,position:'bottom-right',timeout:10,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
 					$('button').removeAttr('disabled');
 				}
 			});			

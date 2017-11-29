@@ -34,6 +34,7 @@ Route::post('set-user-account', 'Auth\Account\SetAccount@update_account')->name(
 
 //phone verification 
 Route::get('verify-phone','Auth\Account\VerifyPhone@show')->middleware('auth');
+Route::get('/resend-code','Auth\Account\VerifyPhone@ResendCode')->middleware('auth');
 Route::post('check-phoneToken','Auth\Account\VerifyPhone@verify')->middleware('auth');
 
 //Admin Verification Route

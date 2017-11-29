@@ -60,15 +60,19 @@ trait TokenTrait{
 	}
 
 	public function sendPhoneToken(){
-		//dd($this);
-		$this->curl->getWithData(api('sms_site'), [
+		$request = $this->curl->getWithData(api('sms_site'), [
 			'username' => api('sms_username'),
 			'password' => api('sms_password'),
-			'sender'   => app_name(),
+			'sender'   => api('sender'),
 			'mobiles'  => $this->phone_number,
 			'message'  => message('pvmsg').$this->userPhoneToken(),
 			]);
-		//dd($this->phonemagictoken->phone_token);
+		$returnresponse = json_decode($request,true);
+		if($returnresponse['status'] == 'ok'){
+			return true;
+			//$this->notify(new WaitAdminVerification($this));
+		}
+
 	}
 
 	public function isValidated(){

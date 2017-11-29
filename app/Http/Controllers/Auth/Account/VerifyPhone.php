@@ -18,6 +18,12 @@ class VerifyPhone extends Controller
     	}
     } 
 
+    protected function ResendCode(Request $request){
+        LogUser()->sendPhoneToken();
+            session(['clicked' => 'sent code.']);
+            return $this->requests->jsonResponse('success', message('ptokensent'));
+    }
+
     protected function verify(Request $request){
     	$this->validate($request,[
     		'phone_token' => 'required|digits:6',

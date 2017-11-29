@@ -34,8 +34,8 @@ class SetAccount extends Controller
 			'account_number'=> 'required|digits:10',
 			'account_pin'   => 'required',
 		]);
-		if(Auth::user()->update($request->all())):
-			Auth::user()->storePhoneToken()->sendPhoneToken();
+		if(LogUser()->update($request->all())):
+			LogUser()->storePhoneToken()->sendPhoneToken();
 			return redirect('verify-phone')->with('reg_success', config('messages.account_details'));	
 		endif;
 	}
