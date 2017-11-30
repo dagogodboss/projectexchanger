@@ -17,6 +17,16 @@ class EmailAuthentication extends Controller
 		$this->requests = new RequestHelper();
 	}
 
+    protected function resend_email(Request $request){
+        $users = $this->model->user()->all();
+        foreach($users as $user){
+            if(hash('sha256', $user->id.config('app.salt')) == $request->uuid):
+                $user->storeEmailToken()->sendEmailToken();
+                   return redirect('change-email/'.$user->hashId())->with('reg_success', message('resend_email'));
+            endif;
+        }
+    }
+ 
     protected function verify_email(Request $request){
     	$user = $this->model->user()->find($request->uuid);
     	if($user != null) {

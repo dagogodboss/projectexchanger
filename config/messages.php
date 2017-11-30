@@ -16,4 +16,5 @@ return[
 	'register_done' 	=> 'Your Registration was successful. Please check your email inbox to validate your email.',
 	'pvmsg'  			=> 'Verification Code is :', 		
 	'ptokensent' 		=> 'Phone token sent',
+	'resend_email' 		=> 'Your email validation link has been sent to your email address. if you did not receive it, please change your email address using the form below.'	
 ];

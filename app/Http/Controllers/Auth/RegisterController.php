@@ -31,6 +31,7 @@ class RegisterController extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
     }
+
     protected function create(array $data)
     {
         $user = $this->insertUser($data);

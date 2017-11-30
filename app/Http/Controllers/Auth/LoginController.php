@@ -42,14 +42,14 @@ class LoginController extends Controller
     {
         if($user->emailmagictoken()->first() != null){
             if(!$user->emailmagictoken->validated){
-              return $this->invalidEmail($request, 'Sorry you have not validated your email.');
+    return $this->invalidEmail($request, 'Sorry you have not validated your email.', $user);
             }
         }
     }
 
-    public function invalidEmail($request, $msg){
+    public function invalidEmail($request, $msg, $user){
         $this->guard()->logout();
         $request->session()->invalidate();
-        return back()->with('reg_error', $msg);
+        return back()->with(['login_error' => $msg, 'user' => $user->hashId()]);
     }
 }

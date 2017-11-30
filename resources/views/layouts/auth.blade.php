@@ -79,6 +79,11 @@
 	    $('.register-container').pgNotification({style:'bar',title:'Notification',message:'{{ session('reg_error') }}',position:'top',timeout:0,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
     </script> 
     @endif
+	@if(session('login_error'))
+    <script type="text/javascript">
+	    $('.register-container').pgNotification({style:'bar',title:'Notification',message:'{{ session('login_error') }} <a href="{{url('resend-email/'.(session('user')))}}" class="alert-link btn btn-link">Resend Verification Email</a>',position:'top',timeout:0,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();
+    </script> 
+    @endif
     @if(session('error'))
     	<script type="text/javascript">
     		$('body').pgNotification({style:'circle',title:'Notification',message:'{{ session('error') }}',position:'bottom-right',timeout:0,type:'danger',thumbnail:'<img width="40" height="40" style="display: inline-block;" src="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">'}).show();

@@ -26,6 +26,7 @@ Route::get('verify-email/{token}/{uuid}', 'Auth\Email\EmailAuthentication@verify
 
 //change-email
 Route::get('change-email/{uuid}', 'Auth\Email\EmailAuthentication@change_email');
+Route::get('resend-email/{uuid}', 'Auth\Email\EmailAuthentication@resend_email');
 Route::post('change-email', 'Auth\Email\EmailAuthentication@update_email')->name('email.reset');
 
 //set Account
